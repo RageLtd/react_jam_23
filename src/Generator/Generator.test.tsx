@@ -5,7 +5,7 @@ import Generator from "./Generator";
 
 const defaultProps = {
   amountToBuy: 1,
-  baseProfit: 1,
+  profit: 1,
   level: 1,
   name: "Test Generator",
   shouldBuyingRound: true,
