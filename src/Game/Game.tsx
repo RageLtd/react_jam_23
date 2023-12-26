@@ -1,4 +1,6 @@
-import { useContext, useReducer } from "react";
+
+import { useReducer } from "react";
+import { ClickTarget } from "../ClickTarget";
 import { initialState } from "./GameContext";
 import { gameReducer } from "./GameReducer";
 
@@ -9,5 +11,14 @@ export default function Game() {
     dispatch({type: 'DELTA_SCORE', payload: amount})
   }
 
-  return <p>Score: {state.score}</p>;
+  function handleClick() {
+    console.log("Clicked!");
+  }
+
+  return (
+    <>
+      <ClickTarget onClick={handleClick} />
+      <p>Score: {state.score}</p>
+    </>
+  );
 }
