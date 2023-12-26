@@ -1,14 +1,6 @@
 import { useContext, useReducer } from "react";
 import { initialState } from "./GameContext";
-
-function gameReducer(state : any, action : any) {
-  switch (action.type) {
-      case 'DELTA_SCORE':
-          return { ...state, score: state.score + action.payload };
-      default:
-          return state;
-  }
-}
+import { gameReducer } from "./GameReducer";
 
 export default function Game() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
