@@ -8,7 +8,7 @@ export default function Game() {
   return (
     <>
       <ClickTarget onClick={handleClick} />
-      <p>Game goes here</p>;
+      <p>Game goes here</p>
     </>
   );
 }
