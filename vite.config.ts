@@ -8,5 +8,6 @@ export default defineConfig({
   plugins: [UnoCSS(), react()],
   test: {
     environment: "happy-dom",
+    setupFiles: ["./vitest-setup.ts"],
   },
 });
