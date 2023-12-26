@@ -1,3 +1,14 @@
+import { ClickTarget } from "../ClickTarget";
+
 export default function Game() {
-  return <p>Game goes here</p>;
+  function handleClick() {
+    console.log("Clicked!");
+  }
+
+  return (
+    <>
+      <ClickTarget onClick={handleClick} />
+      <p>Game goes here</p>;
+    </>
+  );
 }
