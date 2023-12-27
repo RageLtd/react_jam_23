@@ -33,7 +33,7 @@ export default function Game() {
       <div>
         {state.generators.map((generator: TGenerator, i: number) => {
           const className =
-            i - 1 > 0 && state.generators[i - 1].bought ? "" : "hidden";
+            i - 1 > -1 && !state.generators[i - 1].bought ? "hidden" : "";
           return (
             <Generator
               {...generator}

@@ -24,6 +24,7 @@ export default function Generator({
   name,
   profit,
   shouldBuyingRound,
+  ...rest
 }: GeneratorProps) {
   const handleBuyGenerator = () => {
     buyGenerator(amountToBuy, level, shouldBuyingRound);
@@ -34,7 +35,7 @@ export default function Generator({
   });
 
   return (
-    <button className={classes} onClick={handleBuyGenerator}>
+    <button {...rest} className={classes} onClick={handleBuyGenerator}>
       <p>{name}</p>
       <ul>
         <ul>Profit: {profit}</ul>
