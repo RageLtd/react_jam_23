@@ -1,5 +1,9 @@
+import classNames from "classnames";
+
 export interface GeneratorProps {
   amountToBuy: number;
+  bought: boolean;
+  className?: string;
   buyGenerator: (
     amount: number,
     currentLevel: number,
@@ -13,6 +17,8 @@ export interface GeneratorProps {
 
 export default function Generator({
   amountToBuy,
+  bought,
+  className,
   buyGenerator,
   level,
   name,
@@ -23,10 +29,17 @@ export default function Generator({
     buyGenerator(amountToBuy, level, shouldBuyingRound);
   };
 
+  const classes = classNames("w-sm m4", className, {
+    "bg-green-500": !bought,
+  });
+
   return (
-    <button onClick={handleBuyGenerator}>
+    <button className={classes} onClick={handleBuyGenerator}>
       <p>{name}</p>
-      <p>Profit: {profit}</p>
+      <ul>
+        <ul>Profit: {profit}</ul>
+        <ul>Level: {level}</ul>
+      </ul>
     </button>
   );
 }

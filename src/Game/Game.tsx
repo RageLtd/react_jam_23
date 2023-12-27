@@ -31,16 +31,21 @@ export default function Game() {
       <ClickTarget onClick={handleClick} />
       <h1>Generators</h1>
       <div>
-        {state.generators.map((generator: TGenerator) => (
-          <Generator
-            {...generator}
-            key={generator.name}
-            buyGenerator={handleClick}
-            profit={generator.baseProfit * generator.level}
-            shouldBuyingRound={shouldBuyingRound}
-            amountToBuy={amountToBuy}
-          />
-        ))}
+        {state.generators.map((generator: TGenerator, i: number) => {
+          const className =
+            i - 1 > 0 && state.generators[i - 1].bought ? "" : "hidden";
+          return (
+            <Generator
+              {...generator}
+              key={generator.name}
+              buyGenerator={handleClick}
+              profit={generator.baseProfit * generator.level}
+              shouldBuyingRound={shouldBuyingRound}
+              amountToBuy={amountToBuy}
+              className={className}
+            />
+          );
+        })}
       </div>
 
       <div className="flex flex-content-between w-full">
